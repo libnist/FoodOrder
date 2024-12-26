@@ -32,7 +32,7 @@ function cartReducer(state, action) {
                 updatedItems.splice(existingCartItemIndex, 1);
             } else {
                 const updatedItem = { ...existingCartItem, quantity: existingCartItem.quantity - 1 };
-                updatedItem[existingCartItemIndex] = updatedItem;
+                updatedItems[existingCartItemIndex] = updatedItem;
             }
 
             return {...state, items: updatedItems}
@@ -63,7 +63,6 @@ export function CartContextProvider({ children }) {
         removeItem,
     }
 
-    console.log(cartContext);
     return (
         <CartContext.Provider value={cartContext}>
             {children}
